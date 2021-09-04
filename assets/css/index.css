@@ -51,6 +51,7 @@ body {
 	color: #fff;
 	font-family: "Inter", sans-serif;
 	line-height: 1.6;
+	position: relative;
 }
 
 ul {
@@ -61,22 +62,25 @@ a {
 	text-decoration: none;
 }
 
+input {
+    border: none;
+    outline: none;
+}
+
 /* =========================================================== */
 .left-sidebar {
-	position: relative;
+	position: fixed;
+	top: 0;
 	z-index: 100;
 	width: 240px;
 	background-color: #f5f5f50d;
 	height: 100%;
-	padding-top: 70px;
-	padding-bottom: 54px;
 }
 
 /* navbar */
 .left-sidebar .navbar {
 	width: 240px;
 	height: 70px;
-	position: fixed;
 	top: 0;
 	padding: 0 28px;
 	display: flex;
@@ -103,9 +107,11 @@ a {
 
 /* content */
 .left-sidebar .content {
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 15px;
+	padding-bottom: 15px;
+}
+
+.left-sidebar .second-content {
+	padding-top: 15px;
 }
 
 .left-sidebar li {
@@ -143,9 +149,6 @@ a {
 	margin-right: 6px;
 }
 
-/* sidebar-divine */
-.sidebar-divine {
-	position: relative;
-	height: 1px;
-	z-index: 2;
+.live-img {
+	width: 40px;
 }
