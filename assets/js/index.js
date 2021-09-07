@@ -1,11 +1,8 @@
 // slide
-const bigSlideItems = document.querySelectorAll('.gallery-slide .gallery-item')
+// const slidesContainer = document.querySelector('.gallery-slide .gallery-item-container')
+const bigSlideItems = document.querySelectorAll('#slide-1 .gallery-item')
 const totalBigSlides = bigSlideItems.length
-const widthBigImg = bigSlideItems[0].clientWidth
-
-const smallSlideItems = document.querySelectorAll('.gallery .gallery-item')
-const totalSmallSlides = smallSlideItems.length
-const widthSmallImg = smallSlideItems[0].clientWidth
+// const widthBigImg = bigSlideItems[0].clientWidth
 
 // next/back btn
 const backBtn = document.querySelector('.back-btn')
@@ -34,7 +31,7 @@ function checkBtnCanActive() {
         backBtn.setAttribute("disabled", false);
     }
 
-    if (slidePos == totalSlides - 3) {
+    if (slidePos == totalBigSlides - 3) {
         nextBtn.style.opacity = .3
         nextBtn.style.cursor = 'default';
         nextBtn.setAttribute("disabled", true);
@@ -49,8 +46,8 @@ function checkBtnCanActive() {
 checkBtnCanActive()
 
 function toNextPos() {
-    if (slidePos == totalSlides - 3) {
-        slidePos = totalSlides - 3
+    if (slidePos == totalBigSlides - 3) {
+        slidePos = totalBigSlides - 3
     }
     else {
         for (let slide of bigSlideItems) {

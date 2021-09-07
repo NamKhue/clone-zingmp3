@@ -348,8 +348,9 @@ button:hover .tooltiptext {
 /* =========================== gallery-slide ============================== */
 .gallery-slide {
     position: relative;
-    width: 100%;
+    width: 1190px;
     height: 240px;
+    left: -10px;
 }
 
 .gallery-slide h1 {
@@ -390,7 +391,6 @@ button:hover .tooltiptext {
     height: 100%;
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
     overflow: hidden;
 }
 
@@ -401,20 +401,8 @@ button:hover .tooltiptext {
     cursor: pointer;
 }
 
-/* .gallery-slide .gallery-item:first-child {
-    margin-right: 15px;
-}
-
-.gallery-slide .gallery-item:nth-child(2) {
-    margin: 0 15px;
-}
-
-.gallery-slide .gallery-item:last-child {
-    margin-left: 15px;
-} */
-
 .gallery-slide .gallery-item img {
-    width: 370px;
+    width: 376px;
     height: 100%;
     margin: 0 10px;
     border-radius: 10px;
@@ -438,7 +426,7 @@ button:hover .tooltiptext {
         transform: translateX(0);
     }
     to {
-        transform: translateX(-390px);
+        transform: translateX(-396px);
     }
 }
 
@@ -448,7 +436,7 @@ button:hover .tooltiptext {
 
 @-webkit-keyframes come-right {
     from {
-        transform: translateX(-390px);
+        transform: translateX(-396px);
     }
     to {
         transform: translateX(0);
@@ -511,9 +499,11 @@ button:hover .tooltiptext {
     height: 210px;
     position: absolute;
     transition: all ease .2s;
+    opacity: 0;
 }
 
 .gallery .picture:hover .overlay {
+    opacity: 1;
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.4);
 }
@@ -523,14 +513,26 @@ button:hover .tooltiptext {
 .gallery .dots-icon {
     position: absolute;
     top: 50%;
-    opacity: 0;
+    border-radius: 50%;
     transition: all ease .2s;
 }
 
-.gallery .picture:hover .heart-icon,
-.gallery .picture:hover .play-icon,
-.gallery .picture:hover .dots-icon {
-    opacity: 1;
+.gallery .picture .heart-icon,
+.gallery .picture .dots-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery .picture .play-icon:hover {
+    opacity: .8;
+}
+
+.gallery .picture .heart-icon:hover,
+.gallery .picture .dots-icon:hover {
+    background-color: hsla(0, 0%, 100%, 0.3);
 }
 
 .gallery .heart-icon {
@@ -549,6 +551,50 @@ button:hover .tooltiptext {
     left: 80%;
     font-size: 20px;
     transform: translate(-50%, -50%);
+}
+
+/* ======================= tooltip for icon ======================== */
+.gallery .heart-icon .tooltiptext {
+    width: 70px;
+    top: -170%;
+    left: -68%;
+}
+
+.gallery .dots-icon .tooltiptext {
+    width: 50px;
+    top: -110%;
+    left: -36%;
+}
+
+.gallery .heart-icon .tooltiptext,
+.gallery .dots-icon .tooltiptext {
+    visibility: hidden;
+    background-color: #333333;
+    color: #fff;
+    font-size: 11px;
+    letter-spacing: .4;
+    text-align: center;
+    border-radius: 6px;
+    padding: 3px 0;
+    position: absolute;
+    z-index: 2;
+}
+
+.gallery .heart-icon .tooltiptext::after,
+.gallery .dots-icon .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333333 transparent transparent transparent;
+}
+
+.gallery .heart-icon:hover .tooltiptext,
+.gallery .dots-icon:hover .tooltiptext {
+    visibility: visible;
 }
 
 .gallery .gallery-item h1 {
