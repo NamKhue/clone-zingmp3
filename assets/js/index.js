@@ -10,7 +10,6 @@ const nextBtn = document.querySelector('.next-btn')
 
 let slidePos = 0
 
-// ===========================  solution 2  ===========================
 backBtn.addEventListener('click', () => {
     toBackPos()
 })
