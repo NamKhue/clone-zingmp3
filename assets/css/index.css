@@ -244,7 +244,7 @@ input {
 .header-left .input-field {
 	background-color: hsla(0, 0%, 100%, 0.1);
     border-radius: 20px;
-    margin-left: 20px;
+    margin-left: 12px;
     padding: 10px 20px;
     width: 540px;
     height: 40px;
@@ -349,13 +349,13 @@ button:hover .tooltiptext {
 .gallery-slide {
     position: relative;
     width: 1190px;
-    height: 240px;
+    height: 250px;
     left: -10px;
 }
 
 .gallery-slide h1 {
     font-size: 20px;
-    margin-top: 30px;
+    margin: 40px 0 -10px 10px;
 }
 
 .gallery-slide .back-btn,
@@ -445,7 +445,7 @@ button:hover .tooltiptext {
 
 /* ============================ gallery ============================== */
 .gallery {
-    max-height: 300px;
+    min-height: 300px;
     width: 100%;
     margin-top: 30px;
 }
@@ -615,4 +615,293 @@ button:hover .tooltiptext {
 
 .gallery-item .author a:hover {
     border-bottom: 1px solid #c662ef;
+}
+
+/* ======================= new-release ======================== */
+.new-release {
+    position: relative;
+    width: 1190px;
+    height: 200px;
+    left: -10px;
+}
+
+.new-release h1 {
+    font-size: 20px;
+    margin: 40px 0 0 10px;
+}
+
+.new-release .back-btn,
+.new-release .next-btn {
+    position: absolute;
+    font-size: 18px;
+    top: 10px;
+    right: 0;
+    transition: all ease .2s;
+    cursor: pointer;
+}
+
+.new-release .back-btn {
+    right: 50px;
+}
+
+.new-release .next-btn {
+    right: 10px;
+}
+
+.new-release .gallery-item-container {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.new-release .gallery-item {
+    margin: 0 10px;
+    padding: 5px;
+    width: 400px;
+    height: 150px;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px 0 rgba(66, 66, 66, 0.4);
+    background-color: hsla(0, 0%, 100%, 0.1);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+}
+
+/* ======================= new-release col-left ======================== */
+.new-release .col-left {
+    width: 120px;
+    height: 120px;
+    margin: auto 10px;
+    overflow: hidden;
+}
+
+.new-release .col-left .over-lay {
+    opacity: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 120px;
+    height: 120px;
+    transition: .3s ease-in-out;
+    z-index: 1;
+}
+
+.new-release .col-left:hover .over-lay {
+    opacity: 1;
+}
+
+.new-release .over-lay .play-icon {
+    position: absolute;
+    font-size: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.new-release .col-left img {
+    width: 100%;
+    height: 100%;
+    transition: .5s ease-in-out;
+}
+
+.new-release .col-left:hover img {
+    transform: scale(1.1);
+}
+
+/* ======================= new-release col-right ======================== */
+.new-release .col-right {
+    padding: 5px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.new-release .title {
+    text-transform: capitalize;
+    letter-spacing: .4;
+}
+
+.new-release .main-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.new-release .sub-title {
+    color: hsla(0,0%,100%,0.5);
+    font-size: 13px;
+}
+
+.new-release .info {
+    color: hsla(0,0%,100%,0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.new-release .number {
+    font-size: 30px;
+}
+
+.new-release .date {
+}
+
+/* ======================= song-col-container ======================== */
+.song-col-container {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    width: 1190px;
+    margin-left: -10px;
+}
+
+.song-col-container .col-1,
+.song-col-container .col-2,
+.song-col-container .col-3 {
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+    flex: 1;
+}
+
+.song-col-container .song-wrap {
+    border-radius: 4px;
+    width: 376px;
+    height: 60px;
+    padding: 10px;
+    display: flex;
+}
+
+.song-col-container .song-picture {
+    position: relative;
+    flex: 1;
+    cursor: pointer;
+}
+
+.song-col-container .over-lay {
+    position: absolute;
+}
+
+.song-col-container .over-lay .play-icon {
+    position: absolute;
+    font-size: 20px;
+    top: 10px;
+    left: 10px;
+    opacity: 0;
+}
+
+.song-col-container img {
+    width: 40px;
+    height: 40px;
+}
+
+.song-col-container .song-content {
+    flex: 6;
+    font-size: 13px;
+    letter-spacing: .2;
+    margin-left: 10px;
+    margin-right: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.song-col-container .song-content .main-title {
+    font-weight: bold;
+    white-space: wrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.song-col-container .song-content .sub-title {
+    color: hsla(0,0%,100%,0.5);
+    cursor: pointer;
+}
+
+.song-col-container .song-features {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 15px;
+}
+
+.song-col-container .song-features .micro-icon {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.song-col-container .song-features .dots-icon {
+    margin-left: 5px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.song-col-container .song-wrap:hover .play-icon,
+.song-col-container .song-wrap:hover .micro-icon,
+.song-col-container .song-wrap:hover .dots-icon {
+    opacity: 1;
+}
+
+.song-col-container .song-wrap .play-icon:hover {
+    opacity: .8;
+}
+
+.song-col-container .song-wrap:hover,
+.song-col-container .song-wrap:hover .micro-icon:hover,
+.song-col-container .song-wrap:hover .dots-icon:hover {
+    background-color: hsla(0,0%,100%,0.1);
+}
+
+/* ======================= footer ======================== */
+footer {
+    padding-bottom: 30px;
+}
+
+footer h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2;
+    display: block;
+    margin: 24px auto;
+    color: hsla(0,0%,100%,0.5);
+}
+
+footer h1 span:hover {
+    color: #c662ef;
+    cursor: pointer;
+}
+
+.music-partner {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.wrapper {
+    width: 120px;
+    height: 68px;
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+.wrapper img {
+    width: 100%;
+    height: 100%;
 }
