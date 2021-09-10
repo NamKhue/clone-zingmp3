@@ -1186,6 +1186,80 @@
         </div>
     </div>
 
+    <div class="player">
+        <!-- Dashboard -->
+        <div class="dashboard">
+            <div class="left-section">
+                <!-- CD -->
+                <div class="cd">
+                    <div class="cd-thumb" style="
+								background-image: url('https://i.ytimg.com/vi/jTLhQf5KJSc/maxresdefault.jpg');
+							"></div>
+                </div>
+
+                <!-- Header -->
+                <span>
+                    <h2>No song</h2>
+                    <h4>No singer</h4>
+                </span>
+
+                <div class="left-section-btns">
+                    <div class="btn btn-heart">
+                        <i class="far fa-heart"></i>
+                    </div>
+                    <div class="btn btn-ellipsis">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="among-section">
+                <!-- Control -->
+                <div class="control">
+                    <div class="btn btn-random">
+                        <i class="fas fa-random"></i>
+                    </div>
+                    <div class="btn btn-prev">
+                        <i class="fas fa-step-backward"></i>
+                    </div>
+                    <div class="btn btn-toggle-play">
+                        <i class="fas fa-pause icon-pause"></i>
+                        <i class="fas fa-play icon-play"></i>
+                    </div>
+                    <div class="btn btn-next">
+                        <i class="fas fa-step-forward"></i>
+                    </div>
+                    <div class="btn btn-repeat">
+                        <i class="fas fa-redo"></i>
+                    </div>
+                </div>
+
+                <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100" />
+
+                <audio id="audio" src=""></audio>
+            </div>
+
+            <div class="right-section">
+                <div class="btn btn-video">
+                    <i class="fas fa-film"></i>
+                </div>
+                <div class="btn btn-micro">
+                    <i class="fas fa-microphone"></i>
+                </div>
+                <div class="btn btn-sound">
+                    <i class="fas fa-volume-up active"></i>
+                    <i class="fas fa-volume-mute"></i>
+
+                    <input id="volume" class="volume" type="range" value="0" step="10" min="0" max="100" />
+                </div>
+                <div class="divine"></div>
+                <div class="btn btn-playlist">
+                    <i class="fas fa-stream"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="./assets/js/index.js"></script>
 
 </body>
