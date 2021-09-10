@@ -867,6 +867,241 @@ button:hover .tooltiptext {
     background-color: hsla(0,0%,100%,0.1);
 }
 
+/* ======================= player ======================== */
+.player {
+    position: relative;
+    color: #fff;
+}
+
+.player .icon-pause {
+    display: none;
+}
+
+.player.playing .icon-pause {
+    display: inline-block;
+}
+
+.player.playing .icon-play {
+    display: none;
+}
+
+/* dashboard */
+.dashboard {
+    width: 100%;
+    height: 90px;
+    background-color: #170f23;
+    padding: 0 20px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 999;
+}
+
+/* left-section */
+.left-section {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+/* CD */
+.cd {
+    display: flex;
+    width: 64px;
+    height: 64px;
+}
+
+.cd-thumb {
+    width: 100%;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+/* HEADER */
+span {
+    margin: 0 12px;
+}
+
+span h2 {
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+span h4 {
+    color: hsla(0, 0%, 100%, 0.5);
+    font-size: 12px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.left-section-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-section-btns .btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-section-btns .btn:hover {
+    background-color: hsla(0, 0%, 100%, .1);
+    cursor: pointer;
+}
+
+.left-section-btns .btn:first-child {
+    margin: 0 6px;
+}
+
+/* among-section */
+.among-section {
+    flex: 1;
+    margin-bottom: 8px;
+}
+
+/* CONTROL */
+.control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    margin-bottom: 6px;
+}
+
+.control .btn {
+    margin: 0 8px;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.control .btn:hover {
+    background-color: hsla(0, 0%, 100%, .1);
+    cursor: pointer;
+}
+
+.control .btn.active {
+    color: #c662ef;
+}
+
+.control .btn-toggle-play {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control .btn-toggle-play i {
+    font-size: 17px;
+}
+
+.control .btn-toggle-play:hover {
+    color: #c662ef;
+    border: 1px solid #c662ef;
+    background-color: transparent;
+}
+
+.volume,
+.progress {
+    width: 100%;
+    height: 3px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    cursor: pointer;
+}
+
+.progress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 6px;
+}
+
+.right-section {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.right-section .btn {
+    margin: 0 4px;
+    cursor: pointer;
+}
+
+.right-section .btn-sound {
+    display: flex;
+    align-items: center;
+}
+
+.right-section .btn-sound i {
+    display: none;
+    margin-right: 4px;
+}
+
+.right-section .btn-sound i.active {
+    display: inline-block;
+}
+
+.volume {
+    max-width: 80px !important;
+}
+
+.right-section .btn-video,
+.right-section .btn-micro,
+.right-section .btn-sound i.active {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-section .btn-video:hover,
+.right-section .btn-micro:hover,
+.right-section .btn-sound i.active:hover {
+    background-color: hsla(0, 0%, 100%, .1);
+}
+
+.btn-playlist {
+    width: 30px;
+    height: 30px;
+    background-color: hsla(0, 0%, 100%, .1);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-playlist:hover {
+    background-color: hsla(0, 0%, 100%, .2);
+}
+
 /* ======================= footer ======================== */
 footer {
     padding-bottom: 30px;
