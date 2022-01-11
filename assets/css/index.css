@@ -922,17 +922,17 @@ button:hover .tooltiptext {
 }
 
 /* HEADER */
-span {
+.player span {
     margin: 0 12px;
 }
 
-span h2 {
+.player span h2 {
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
 }
 
-span h4 {
+.player span h4 {
     color: hsla(0, 0%, 100%, 0.5);
     font-size: 12px;
     font-weight: 300;
