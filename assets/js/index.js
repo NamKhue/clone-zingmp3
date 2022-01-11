@@ -10,6 +10,7 @@ const nextBtnSlide = document.querySelector(".next-btn")
 
 let slidePos = 0
 
+
 backBtn.addEventListener("click", () => {
 	toBackPos()
 })
@@ -86,7 +87,8 @@ function toBackPos() {
 	checkBtnCanActive()
 }
 
-// ===============================================================
+
+// =============================== CD-PLAYER ================================
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
@@ -320,3 +322,59 @@ const app = {
 }
 
 app.start()
+
+
+// ========================= CHANGE VALUE OF VOLUME ============================
+
+// Create new audio element
+let current_track = document.querySelector(".audio")
+let volume_slider = document.querySelector(".volume_slider")
+let volume_down = document.querySelector(".fa-volume-down")
+let volume_mute = document.querySelector(".fa-volume-mute")
+
+function setVolume(value) {
+	if (value <= 0 && value <= 1) {
+		current_track.volume = value
+		seek_slider.value = value
+	}
+	else {
+		current_track.volume = volume_slider.value / 100
+	}
+}
+
+function volumeOn() {
+	if (current_track.volume + .1 <= 1) {
+		current_track.volume += .1
+	}
+	else {
+		current_track.volume = 1
+	}
+	volume_slider.value = current_track.volume * 100
+}
+
+let temp_volume, countOff_volume = 0
+function volumeOff() {
+	if (current_track.volume - .1 >= 0) {
+		current_track.volume -= .1
+	}
+	else {
+		current_track.volume = 0
+	}
+
+	if (countOff_volume == 0 && current_track.volume == 0) {
+		current_track.volume = 0
+		countOff_volume = 1
+
+		volume_down.classList.remove("active")
+		volume_mute.classList.add("active")
+	}
+	else {
+		current_track.volume = .1
+		countOff_volume = 0
+		
+		volume_down.classList.add("active")
+		volume_mute.classList.remove("active")
+	}
+
+	volume_slider.value = current_track.volume * 100
+}
