@@ -1236,7 +1236,7 @@
 
                 <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100" />
 
-                <audio id="audio" src=""></audio>
+                <audio id="audio" class="audio" src=""></audio>
             </div>
 
             <div class="right-section">
@@ -1247,10 +1247,13 @@
                     <i class="fas fa-microphone"></i>
                 </div>
                 <div class="btn btn-sound">
-                    <i class="fas fa-volume-up active"></i>
-                    <i class="fas fa-volume-mute"></i>
+                    <i class="fas fa-volume-mute" onclick="volumeOff()"></i>
+                    <i class="fas fa-volume-down active" onclick="volumeOff()"></i>
 
-                    <input id="volume" class="volume" type="range" value="0" step="10" min="0" max="100" />
+                    <input id="volume" class="volume_slider" type="range" min="0" max="100" value="100"
+                        onchange="setVolume()" />
+
+                    <i class="fas fa-volume-up active" onclick="volumeOn()"></i>
                 </div>
                 <div class="divine"></div>
                 <div class="btn btn-playlist">
