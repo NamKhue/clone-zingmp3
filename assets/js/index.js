@@ -1,106 +1,110 @@
 // slide
 // const slidesContainer = document.querySelector('.gallery-slide .gallery-item-container')
-const bigSlideItems = document.querySelectorAll("#slide-1 .gallery-item");
-const totalBigSlides = bigSlideItems.length;
+const bigSlideItems = document.querySelectorAll("#slide-1 .gallery-item")
+const totalBigSlides = bigSlideItems.length
 // const widthBigImg = bigSlideItems[0].clientWidth
 
 // next/back btn
-const backBtn = document.querySelector(".back-btn");
-const nextBtnSlide = document.querySelector(".next-btn");
+const backBtn = document.querySelector(".back-btn")
+const nextBtnSlide = document.querySelector(".next-btn")
 
-let slidePos = 0;
+let slidePos = 0
 
 backBtn.addEventListener("click", () => {
-	toBackPos();
-});
+	toBackPos()
+})
 
 nextBtnSlide.addEventListener("click", () => {
-	toNextPos();
-});
+	toNextPos()
+})
 
 function checkBtnCanActive() {
 	if (slidePos == 0) {
-		backBtn.style.opacity = 0.3;
-		backBtn.style.cursor = "default";
-		backBtn.setAttribute("disabled", true);
-	} else {
-		backBtn.style.opacity = 1;
-		backBtn.style.cursor = "pointer";
-		backBtn.setAttribute("disabled", false);
+		backBtn.style.opacity = 0.3
+		backBtn.style.cursor = "default"
+		backBtn.setAttribute("disabled", true)
+	}
+	else {
+		backBtn.style.opacity = 1
+		backBtn.style.cursor = "pointer"
+		backBtn.setAttribute("disabled", false)
 	}
 
 	if (slidePos == totalBigSlides - 3) {
-		nextBtnSlide.style.opacity = 0.3;
-		nextBtnSlide.style.cursor = "default";
-		nextBtnSlide.setAttribute("disabled", true);
-	} else {
-		nextBtnSlide.style.opacity = 1;
-		nextBtnSlide.style.cursor = "pointer";
-		nextBtnSlide.setAttribute("disabled", false);
+		nextBtnSlide.style.opacity = 0.3
+		nextBtnSlide.style.cursor = "default"
+		nextBtnSlide.setAttribute("disabled", true)
+	}
+	else {
+		nextBtnSlide.style.opacity = 1
+		nextBtnSlide.style.cursor = "pointer"
+		nextBtnSlide.setAttribute("disabled", false)
 	}
 }
 
-checkBtnCanActive();
+checkBtnCanActive()
 
 function toNextPos() {
 	if (slidePos == totalBigSlides - 3) {
-		slidePos = totalBigSlides - 3;
-	} else {
+		slidePos = totalBigSlides - 3
+	}
+	else {
 		for (let slide of bigSlideItems) {
-			slide.classList.add("hide-left");
+			slide.classList.add("hide-left")
 		}
 
-		slidePos++;
+		slidePos++
 
 		setTimeout(() => {
-			bigSlideItems[slidePos - 1].classList.add("nonactive");
+			bigSlideItems[slidePos - 1].classList.add("nonactive")
 			for (let slide of bigSlideItems) {
-				slide.classList.remove("hide-left");
+				slide.classList.remove("hide-left")
 			}
-		}, 300);
+		}, 300)
 	}
-	checkBtnCanActive();
+	checkBtnCanActive()
 }
 
 function toBackPos() {
 	if (slidePos == 0) {
-		slidePos = 0;
-	} else {
+		slidePos = 0
+	}
+	else {
 		for (let slide of bigSlideItems) {
-			slide.classList.add("come-right");
+			slide.classList.add("come-right")
 		}
 
-		bigSlideItems[slidePos - 1].classList.remove("nonactive");
-		slidePos--;
+		bigSlideItems[slidePos - 1].classList.remove("nonactive")
+		slidePos--
 
 		setTimeout(() => {
 			for (let slide of bigSlideItems) {
-				slide.classList.remove("come-right");
+				slide.classList.remove("come-right")
 			}
-		}, 300);
+		}, 300)
 	}
-	checkBtnCanActive();
+	checkBtnCanActive()
 }
 
 // ===============================================================
-const $ = document.querySelector.bind(document);
-const $$ = document.querySelectorAll.bind(document);
+const $ = document.querySelector.bind(document)
+const $$ = document.querySelectorAll.bind(document)
 
-const PlAYER_STORAGE_KEY = "F8_PLAYER";
+const PlAYER_STORAGE_KEY = "F8_PLAYER"
 
-const player = $(".player");
-const cd = $(".cd");
-const nameSong = $("span h2");
-const singer = $("span h4");
-const cdThumb = $(".cd-thumb");
-const audio = $("#audio");
-const playBtn = $(".btn-toggle-play");
-const progress = $("#progress");
-const prevBtn = $(".btn-prev");
-const nextBtn = $(".btn-next");
-const randomBtn = $(".btn-random");
-const repeatBtn = $(".btn-repeat");
-const playlist = $(".playlist");
+const player = $(".player")
+const cd = $(".cd")
+const nameSong = $("span h2")
+const singer = $("span h4")
+const cdThumb = $(".cd-thumb")
+const audio = $("#audio")
+const playBtn = $(".btn-toggle-play")
+const progress = $("#progress")
+const prevBtn = $(".btn-prev")
+const nextBtn = $(".btn-next")
+const randomBtn = $(".btn-random")
+const repeatBtn = $(".btn-repeat")
+const playlist = $(".playlist")
 
 const app = {
 	currentIndex: 0,
@@ -137,19 +141,19 @@ const app = {
 		},
 	],
 	setConfig: function (key, value) {
-		this.config[key] = value;
+		this.config[key] = value
 		// (2/2) Uncomment the line below to use localStorage
-		localStorage.setItem(PlAYER_STORAGE_KEY, JSON.stringify(this.config));
+		localStorage.setItem(PlAYER_STORAGE_KEY, JSON.stringify(this.config))
 	},
 	defineProperties: function () {
 		Object.defineProperty(this, "currentSong", {
 			get: function () {
-				return this.songs[this.currentIndex];
+				return this.songs[this.currentIndex]
 			},
-		});
+		})
 	},
 	handleEvents: function () {
-		const _this = this;
+		const _this = this
 
 		// Xử lý CD quay / dừng
 		// Handle CD spins / stops
@@ -159,34 +163,35 @@ const app = {
 				duration: 10000, // 10 seconds
 				iterations: Infinity,
 			}
-		);
-		cdThumbAnimate.pause();
+		)
+		cdThumbAnimate.pause()
 
 		// Xử lý khi click play
 		// Handle when click play
 		playBtn.onclick = function () {
 			if (_this.isPlaying) {
-				audio.pause();
-			} else {
-				audio.play();
+				audio.pause()
 			}
-		};
+			else {
+				audio.play()
+			}
+		}
 
 		// Khi song được play
 		// When the song is played
 		audio.onplay = function () {
-			_this.isPlaying = true;
-			player.classList.add("playing");
-			cdThumbAnimate.play();
-		};
+			_this.isPlaying = true
+			player.classList.add("playing")
+			cdThumbAnimate.play()
+		}
 
 		// Khi song bị pause
 		// When the song is pause
 		audio.onpause = function () {
-			_this.isPlaying = false;
-			player.classList.remove("playing");
-			cdThumbAnimate.pause();
-		};
+			_this.isPlaying = false
+			player.classList.remove("playing")
+			cdThumbAnimate.pause()
+		}
 
 		// Khi tiến độ bài hát thay đổi
 		// When the song progress changes
@@ -194,121 +199,124 @@ const app = {
 			if (audio.duration) {
 				const progressPercent = Math.floor(
 					(audio.currentTime / audio.duration) * 100
-				);
-				progress.value = progressPercent;
+				)
+				progress.value = progressPercent
 			}
-		};
+		}
 
 		// Xử lý khi tua song
 		// Handling when seek
 		progress.onchange = function (e) {
-			const seekTime = (audio.duration / 100) * e.target.value;
-			audio.currentTime = seekTime;
-		};
+			const seekTime = (audio.duration / 100) * e.target.value
+			audio.currentTime = seekTime
+		}
 
 		// Khi next song
 		// When next song
 		nextBtn.onclick = function () {
 			if (_this.isRandom) {
-				_this.playRandomSong();
-			} else {
-				_this.nextSong();
+				_this.playRandomSong()
 			}
-			audio.play();
-		};
+			else {
+				_this.nextSong()
+			}
+			audio.play()
+		}
 
 		// Khi prev song
 		// When prev song
 		prevBtn.onclick = function () {
 			if (_this.isRandom) {
-				_this.playRandomSong();
-			} else {
-				_this.prevSong();
+				_this.playRandomSong()
 			}
-			audio.play();
-		};
+			else {
+				_this.prevSong()
+			}
+			audio.play()
+		}
 
 		// Xử lý bật / tắt random song
 		// Handling on / off random song
 		randomBtn.onclick = function () {
-			_this.isRandom = !_this.isRandom;
-			_this.setConfig("isRandom", _this.isRandom);
-			randomBtn.classList.toggle("active", _this.isRandom);
-		};
+			_this.isRandom = !_this.isRandom
+			_this.setConfig("isRandom", _this.isRandom)
+			randomBtn.classList.toggle("active", _this.isRandom)
+		}
 
 		// Xử lý lặp lại một song
 		// Single-parallel repeat processing
 		repeatBtn.onclick = function () {
-			_this.isRepeat = !_this.isRepeat;
-			_this.setConfig("isRepeat", _this.isRepeat);
-			repeatBtn.classList.toggle("active", _this.isRepeat);
-		};
+			_this.isRepeat = !_this.isRepeat
+			_this.setConfig("isRepeat", _this.isRepeat)
+			repeatBtn.classList.toggle("active", _this.isRepeat)
+		}
 
 		// Xử lý next song khi audio ended
 		// Handle next song when audio ended
 		audio.onended = function () {
 			if (_this.isRepeat) {
-				audio.play();
-			} else {
-				nextBtn.click();
+				audio.play()
 			}
-		};
+			else {
+				nextBtn.click()
+			}
+		}
 	},
 	loadCurrentSong: function () {
-		nameSong.textContent = this.currentSong.name;
-		singer.textContent = this.currentSong.singer;
-		cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`;
-		audio.src = this.currentSong.path;
+		nameSong.textContent = this.currentSong.name
+		singer.textContent = this.currentSong.singer
+		cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`
+		audio.src = this.currentSong.path
 	},
 	loadConfig: function () {
-		this.isRandom = this.config.isRandom;
-		this.isRepeat = this.config.isRepeat;
+		this.isRandom = this.config.isRandom
+		this.isRepeat = this.config.isRepeat
 	},
 	nextSong: function () {
-		this.currentIndex++;
+		this.currentIndex++
 		if (this.currentIndex >= this.songs.length) {
-			this.currentIndex = 0;
+			this.currentIndex = 0
 		}
-		this.loadCurrentSong();
+		this.loadCurrentSong()
 	},
 	prevSong: function () {
-		this.currentIndex--;
+		this.currentIndex--
 		if (this.currentIndex < 0) {
-			this.currentIndex = this.songs.length - 1;
+			this.currentIndex = this.songs.length - 1
 		}
-		this.loadCurrentSong();
+		this.loadCurrentSong()
 	},
 	playRandomSong: function () {
-		let newIndex;
+		let newIndex
 		do {
-			newIndex = Math.floor(Math.random() * this.songs.length);
-		} while (newIndex === this.currentIndex);
+			newIndex = Math.floor(Math.random() * this.songs.length)
+		} while (newIndex === this.currentIndex)
 
-		this.currentIndex = newIndex;
-		this.loadCurrentSong();
+		this.currentIndex = newIndex
+		this.loadCurrentSong()
 	},
 	start: function () {
 		// Gán cấu hình từ config vào ứng dụng
 		// Assign configuration from config to application
-		this.loadConfig();
+		this.loadConfig()
 
 		// Định nghĩa các thuộc tính cho object
 		// Defines properties for the object
-		this.defineProperties();
+		this.defineProperties()
 
 		// Lắng nghe / xử lý các sự kiện (DOM events)
 		// Listening / handling events (DOM events)
-		this.handleEvents();
+		this.handleEvents()
 
 		// Tải thông tin bài hát đầu tiên vào UI khi chạy ứng dụng
 		// Load the first song information into the UI when running the app
-		this.loadCurrentSong();
+		this.loadCurrentSong()
 
 		// Hiển thị trạng thái ban đầu của button repeat & random
 		// Display the initial state of the repeat & random button
-		randomBtn.classList.toggle("active", this.isRandom);
-		repeatBtn.classList.toggle("active", this.isRepeat);
+		randomBtn.classList.toggle("active", this.isRandom)
+		repeatBtn.classList.toggle("active", this.isRepeat)
 	},
-};
+}
 
-app.start();
+app.start()
